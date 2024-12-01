@@ -30,9 +30,7 @@
 namespace fs = std::filesystem;
 
 void deleteFolder(const std::string &folderPath) {
-    // 폴더가 존재하는지 확인
     if (fs::exists(folderPath) && fs::is_directory(folderPath)) {
-        // 폴더와 그 안의 모든 파일 및 하위 폴더 삭제
         std::error_code ec;
         fs::remove_all(folderPath, ec);
         if (ec) {
