@@ -30,13 +30,16 @@ conda env update --file ./conda/hellm-bert-env.yml  --prune
 export HELLM_KEY_PATH=./key
 ```
 
-## Description of each executable file
+## Description of running files for experiment.
 
-1. First, run `convert2.cpp` to generate the HE version of the pre-trained weights. Use the pre-defined container path specified in the plaintext model and the designated output data folder. For more details, refer to the Fine-tuning explanation below.
+1. Run `convert.py` to generate a container file for HE implementation with a pre-generated train/eval dataset running in plaintext. This file will be used in the next step and containing an appropriate input data for HE model.
 
-2. `/examples/backward-bert-multi.cpp` is an implementation code for fine-tuning.
+2. Run `convert2.cpp` to generate the HE version of the pre-trained weights. Use the pre-defined container path specified in the plaintext model and the designated output data folder. For more details, refer to the Fine-tuning explanation below.
 
-3. `/examples/bert-test.cpp` is an implementation code for evaluation.
+3. Run either of the following two files:
+
+- **3-1.** `/examples/backward-bert-multi.cpp`: Implementation code for fine-tuning.
+- **3-2.** `/examples/bert-test.cpp`: Implementation code for evaluation.
 
 
 
