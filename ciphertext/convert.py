@@ -182,15 +182,17 @@ def main():
     # QNLI: 104743
 
     ####################################################################################
-    # Torch path should be set as the same path in grad_test.py file,                 ##
-    # For example, since we set the train data set output path as                     ##
-    # `mrpc_train_inputs/input(index)_2ly_mrpc.pth`, we set the path as the following ##
-    ####################################################################################
+    ## Torch path should be set as the same path in grad_test.py file,                 ##
+    ## For example, since we set the train data set output path as                     ##
+    ## `mrpc_train_inputs/input(index)_2ly_mrpc.pth`, we set the path as the following ##
+    ## The train/eval data are saved in plaintext/fine_tuning_data/. So, the target    ## 
+    ## data path need to be set `plaintext/fine_tuning_data/(task)_train_input/masks/  ##
+    #####################################################################################
 
     for i in range(0,3668):
-        inp = torch.load(f'./mrpc_train_inputs/input{i}_2ly_mrpc.pth')
+        inp = torch.load(f'/plaintext/fine_tuning_data/mrpc_train_inputs/input{i}_2ly_mrpc.pth')
         container.add(f'input_{i}', inp)
-        inp = torch.load(f'./mrpc_train_masks/mask{i}_2ly_mrpc.pth')
+        inp = torch.load(f'/plaintext/fine_tuning_data/mrpc_train_masks/mask{i}_2ly_mrpc.pth')
         container.add(f'mask_{i}', inp)
 
 
@@ -205,15 +207,15 @@ def main():
 
     #################################################################################
     # Torch path should be set as the same path in grad_test.py file,              ##
-    # For example, since we set the eval dataoutput path as                        ##
+    # For example, since we set the eval data output path as                       ##
     # `mrpc_eval_masks/mask(index)_2ly_mrpc.pth`, we set the path as the following ##
     #################################################################################
 
     #MRPC
     """ for i in range(0,408):
-        inp = torch.load(f'./mrpc_eval_inputs/2ly_mrpc_eval/input{i}_2ly_mrpc_eval.pth')
+        inp = torch.load(f'./plaintext/fine_tuning_data/mrpc_eval_inputs/input{i}_2ly_mrpc_eval.pth')
         container.add(f'input_{i}', inp)
-        inp = torch.load(f'./mrpc_eval_masks/mask{i}_2ly_mrpc_eval.pth')
+        inp = torch.load(f'./plaintext/fine_tuning_data/mrpc_eval_masks/mask{i}_2ly_mrpc_eval.pth')
         container.add(f'mask_{i}', inp) """
 
 
