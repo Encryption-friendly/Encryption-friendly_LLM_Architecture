@@ -32,9 +32,12 @@ export HELLM_KEY_PATH=./key
 
 ## Description of each executable file
 
-1. `/examples/backward-bert-multi.cpp` is an implementation code for fine-tuning.
+1. First, run `convert2.cpp` to generate the HE version of the pre-trained weights. Use the pre-defined container path specified in the plaintext model and the designated output data folder. For more details, refer to the Fine-tuning explanation below.
 
-2. `/examples/bert-test.cpp` is an implementation code for evaluation.
+2. `/examples/backward-bert-multi.cpp` is an implementation code for fine-tuning.
+
+3. `/examples/bert-test.cpp` is an implementation code for evaluation.
+
 
 
 ## How to Set Required Parameters for Fine-Tuning 
