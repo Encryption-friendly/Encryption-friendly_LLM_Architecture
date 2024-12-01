@@ -23,9 +23,11 @@ After training, result files are created at `outputs/{your_name}`.
 To fine-tune the pre-trained model under Homomorphic Encryption (HE), we have to save fine-tuning data (GLUE) in the form which can be processed under HE. To do this, follow the instructions below:
 
 * After pre-training, the weights are saved as `model.safetensors` in `outputs/{your_name}/checkpoints/ScriptableCrammedBERT-modified_{execution_date}_{final_loss}`.
-* Move `model.safetensors` file to the `pre-trained_weights` folder.
-* Run `python saving_fine-tuning_data.py eval.name={your_name}` to save fine-tuning data.
-* Run `python convert.py --name={your_name} --task={task_name}`.
+* Copy the `model.safetensors` file to the `pre-trained_weights/{your_name}` folder.
+* Run `python saving_fine-tuning_data.py eval.user_name={your_name} eval.save_train_data=True` to save fine-tuning training data.
+* Run `convert.py` located in ciphertext folder to convert saved data into a format suitable for HE.
+* Run `python saving_fine-tuning_data.py eval.user_name={your_name} eval.save_train_data=False` to save fine-tuning evaluation data.
+* Run `convert.py` located in ciphertext folder to convert saved data into a format suitable for HE.
 
 You can choose fine-tuning dataset in `defaults/tasks` in `cramming/config/eval/GLUE_sane`. You can choose among `cola, mrpc, qnli, rte, sst2, stsb`.
 

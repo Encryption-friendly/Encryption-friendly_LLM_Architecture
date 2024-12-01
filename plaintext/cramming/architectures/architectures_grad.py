@@ -617,7 +617,7 @@ class ScriptableLM_grad(PreTrainedModel):
             ## we should set the output torch data as `mrpc_train_masks/mask(index)_2ly_mrpc.pth`  ##
             #########################################################################################
             attn_mask_cpu = attention_mask.cpu()
-            torch.save(attn_mask_cpu, f'./fine-tuning_data/{self.cfg.task_name}/{self.save}_masks/mask{self.number}_2ly_{self.cfg.task_name}.pth')
+            torch.save(attn_mask_cpu, f'./fine-tuning_data/{self.cfg.task_name}_train_masks/mask{self.number}_2ly_{self.cfg.task_name}.pth')
       
         hidden_states, embedding_outputs = self.embedding(input_ids)
     
@@ -632,8 +632,7 @@ class ScriptableLM_grad(PreTrainedModel):
         ## we should set the output torch data as `mrpc_train_ipnuts/input(index)_2ly_mrpc.pth` ##
         ########################################################################################## 
         attn_mask_cpu = hidden_states.cpu()
-        torch.save(attn_mask_cpu, f'./fine-tuning_data/{self.cfg.task_name}/{self.save}_inputs/input{self.number}_2ly_{self.cfg.task_name}.pth') 
-        print(f'Save: ./fine-tuning_data/{self.cfg.task_name}/{self.save}_inputs/input{self.number}_2ly_{self.cfg.task_name}.pth')   
+        torch.save(attn_mask_cpu, f'./fine-tuning_data/{self.cfg.task_name}_train_inputs/input{self.number}_2ly_{self.cfg.task_name}.pth')
         
         self.number += 1
         

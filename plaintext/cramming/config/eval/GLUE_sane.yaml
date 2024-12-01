@@ -13,8 +13,9 @@ defaults:
       # - sst2
       # - stsb
 
-saving_name: 
-saving_task: 
+user_name: 
+saving_task:
+save_train_data:
 
 valid_tasks:
 
