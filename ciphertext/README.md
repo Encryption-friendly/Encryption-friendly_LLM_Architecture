@@ -30,7 +30,16 @@ conda env update --file ./conda/hellm-bert-env.yml  --prune
 export HELLM_KEY_PATH=./key
 ```
 
-## How to Set Required Parameters for Fine-Tuning
+## Description of each executable file
+
+1. `/examples/backward-bert-multi.cpp` is an implementation code for fine-tuning.
+
+2. `/examples/bert-test.cpp` is an implementation code for evaluation.
+
+
+## How to Set Required Parameters for Fine-Tuning 
+
+Fine-tuning works in `/examples/backward-bert-multi.cpp`
 
 1. Set the weight directory (`weight_pth`).
 Specify the directory containing the model weights.
@@ -91,7 +100,8 @@ num_data = 67439 # SST2
 num_data = 104743 # QNLI
 ```
 
-7. Specify the pre-trained weight file (`container`).
+7. Specify the pre-trained weight file (`container`), which has been set in the plaintext output file.
+
 Provide the pre-trained weight file to be used.
 
 Example
