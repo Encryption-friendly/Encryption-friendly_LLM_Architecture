@@ -31,7 +31,7 @@ To fine-tune the pre-trained model under Homomorphic Encryption (HE), we have to
 
 You can choose fine-tuning dataset in `defaults/tasks` in `cramming/config/eval/GLUE_sane`. You can choose among `cola, mrpc, qnli, rte, sst2, stsb`.
 
-## 3. Fine-tuning under plaintext
+## 3-1. Fine-tuning under plaintext
 Although we fine-tune the model under HE, we also explain how to fine-tune under plaintext. We fix the sequence length as 128 as in experiments under HE.
 
 For full fine-tuning, run:
@@ -45,3 +45,6 @@ python eval_lora_128_padding.py eval=GLUE_sane name=amp_b8192_cb_o4_final eval.c
 ```
 
 You can adjust LoRA rank and alpha in `lora_rank` and `lora_alpha` in `cramming/config/eval/GLUE_sane`.
+
+## 3-2. Fine-tuning under ciphertext
+Move to the `ciphertext` folder and refer to the `README.md` file.
