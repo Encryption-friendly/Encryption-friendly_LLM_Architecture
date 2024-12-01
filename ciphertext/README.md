@@ -30,7 +30,22 @@ conda env update --file ./conda/hellm-bert-env.yml  --prune
 export HELLM_KEY_PATH=./key
 ```
 
-## How to Set Required Parameters for Fine-Tuning
+## Description of running files for experiment.
+
+1. Run `convert.py` to generate a container file for HE implementation with a pre-generated train/eval dataset running in plaintext, which is saved in `plaintext/fine_tuning_data`. This file will be used in the next step and will contain appropriate input data for the HE model.
+
+2. Run `convert2.cpp` to generate the HE version of the pre-trained weights. Use the pre-defined container path specified in the plaintext model and the designated output data folder. For more details, refer to the Fine-tuning explanation below.
+
+3. Run either of the following two files:
+
+- **3-1.** `/examples/backward-bert-multi.cpp`: Implementation code for fine-tuning.
+- **3-2.** `/examples/bert-test.cpp`: Implementation code for evaluation.
+
+
+
+## How to Set Required Parameters for Fine-Tuning 
+
+Fine-tuning works in `/examples/backward-bert-multi.cpp`
 
 1. Set the weight directory (`weight_pth`).
 Specify the directory containing the model weights.
@@ -91,7 +106,8 @@ num_data = 67439 # SST2
 num_data = 104743 # QNLI
 ```
 
-7. Specify the pre-trained weight file (`container`).
+7. Specify the pre-trained weight file (`container`), which has been set in the plaintext output file.
+
 Provide the pre-trained weight file to be used.
 
 Example
